@@ -3,6 +3,7 @@ const { Client, Collection, Events, GatewayIntentBits } = require('discord.js');
 const dotenv = require('dotenv');
 const fs = require('node:fs');
 const path = require('node:path');
+const { Op } = require('sequelize');
 
 dotenv.config();
 
@@ -11,6 +12,30 @@ const token = process.env.TOKEN
 
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+
+// Define balance collection
+const balance = new Collection();
+
+// add functions to balance collection
+async function addBalance(id, amount) {
+	const user = currency.get(id);
+
+	if (user) {
+		user.balance += Number(amount);
+		return user.save();
+	}
+
+	const newUser = await Users.create({ user_id: id, balance: amount });
+	currency.set(id, newUser);
+
+	return newUser;
+}
+
+function getBalance(id) {
+	const user = currency.get(id);
+	return user ? user.balance : 0;
+}
+
 
 // When the client is ready, run this code (only once)
 // We use 'c' for the event parameter to keep it separate from the already defined 'client'
@@ -23,7 +48,7 @@ client.login(token);
 
 client.commands = new Collection();
 
-const commandsPath = path.join(__dirname, 'src/commands');
+const commandsPath = path.join(__dirname, 'commands');
 const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('.js'));
 
 for (const file of commandFiles) {

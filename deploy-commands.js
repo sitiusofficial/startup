@@ -4,7 +4,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 
 dotenv.config();
-const token = process.env.token
+const token = process.env.TOKEN
 const clientId = process.env.clientId
 
 const commands = [];
@@ -15,7 +15,7 @@ const commandFiles = fs.readdirSync(commandsPath).filter(file => file.endsWith('
 // Grab the SlashCommandBuilder#toJSON() output of each command's data for deployment
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
-	commands.push(command.data.toJSON());
+  commands.push(command.data.toJSON());
 }
 
 // Construct and prepare an instance of the REST module
@@ -28,7 +28,7 @@ const rest = new REST({ version: '10' }).setToken(token);
 
 		// The put method is used to fully refresh all commands in the bot with the current set
 		const data = await rest.put(
-			Routes.applicationGuildCommands(clientId),
+			Routes.applicationCommands(clientId),
 			{ body: commands },
 		);
 
