@@ -4,7 +4,7 @@
 An open-source discord bot that lets you manage a startup company(fake).
 
 <!-- badges -->
-[![Startup version](https://img.sheilds.io/badge/startup-v0.0.1-success.svg)](https://github.com/spit-fires/startup)
+[![Startup version](https://img.shields.io/badge/startup-v0.0.1-success.svg)](https://github.com/spit-fires/startup)
 [![AGPL License](https://img.shields.io/badge/license-AGPL-blue.svg)](http://www.gnu.org/licenses/agpl-3.0)
 [![Discord.js version](https://img.shields.io/badge/discord.js-v14-brightgreen.svg)](https://discord.js.org/)
 
