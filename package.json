@@ -1,6 +1,6 @@
 {
   "name": "startup",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "A Discord bot that lets you manage your own company!",
   "main": "index.js",
   "scripts": {
