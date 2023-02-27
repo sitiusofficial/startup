@@ -25,7 +25,7 @@ async function addBalance(id, amount) {
 		return user.save();
 	}
 
-	const newUser = await Users.create({ user_id: id, balance: amount });
+	const newUser = await user.create({ user_id: id, balance: amount });
 	currency.set(id, newUser);
 
 	return newUser;
