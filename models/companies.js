@@ -3,7 +3,10 @@ module.exports = (sequelize, Datatypes) => {
 	  name: Datatypes.STRING,
 	  industry: Datatypes.STRING,
 	  salary: Datatypes.INTEGER,
-    uid: Datatypes.STRING,
+    uid: {
+      type: Datatypes.STRING,
+      unique: true,
+    },
     ceo: Datatypes.INTEGER,
     bal: Datatypes.INTEGER,
   }, {
