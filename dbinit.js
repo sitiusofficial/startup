@@ -10,9 +10,9 @@ const sequelize = new Sequelize('database', 'user', 'password', {
 
 require('./models/companies.js')(sequelize, Sequelize.DataTypes);
 
-const force = process.argv.includes('--force') || process.argv.includes('-f');
+const alter = process.argv.includes('--alter') || process.argv.includes('-a');
 
-sequelize.sync({ force }).then(async () => {
+sequelize.sync({ alter }).then(async () => {
   console.log('Database synced');
   sequelize.close();
 }).catch(console.error);
