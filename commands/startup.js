@@ -38,8 +38,7 @@ module.exports = {
           industry: industry,
           salary: salary,
           ceo: ceo,
-          bal: bal,
-          uid: ceo
+          bal: bal
         });
   
         return interaction.reply(`New company with the following properties added: \nName: ${company.name} \nIndustry: ${company.industry} \nSalary: ${company.salary} \nCEO: ${company.ceo} \nBalance: ${company.bal} \nUID: ${company.uid}`);

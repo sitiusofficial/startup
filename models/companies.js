@@ -4,8 +4,8 @@ module.exports = (sequelize, Datatypes) => {
 	  industry: Datatypes.STRING,
 	  salary: Datatypes.INTEGER,
     uid: {
-      type: Datatypes.STRING,
-      unique: true,
+      type: Datatypes.UUID,
+      defaultValue: Datatypes.UUIDV4,
     },
     ceo: Datatypes.INTEGER,
     bal: Datatypes.INTEGER,
