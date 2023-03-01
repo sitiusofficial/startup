@@ -3,8 +3,8 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {
   data: new SlashCommandBuilder()
-    .setName('fetchcompany')
-    .setDescription('Fetches a company')
+    .setName('findcompany')
+    .setDescription('Fetches information a company')
     .addStringOption(option =>
       option
         .setName('uid')
