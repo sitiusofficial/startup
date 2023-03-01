@@ -13,29 +13,6 @@ const token = process.env.TOKEN
 // Create a new client instance
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
-// Define balance collection
-const balance = new Collection();
-
-// add functions to balance collection
-async function addBalance(id, amount) {
-	const user = currency.get(id);
-
-	if (user) {
-		user.balance += Number(amount);
-		return user.save();
-	}
-
-	const newUser = await user.create({ user_id: id, balance: amount });
-	currency.set(id, newUser);
-
-	return newUser;
-}
-
-function getBalance(id) {
-	const user = currency.get(id);
-	return user ? user.balance : 0;
-}
-
 
 // When the client is ready, run this code (only once)
 // We use 'c' for the event parameter to keep it separate from the already defined 'client'
