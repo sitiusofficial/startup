@@ -10,6 +10,7 @@ const sequelize = new Sequelize('database', 'user', 'password', {
 
 require('./models/companies.js')(sequelize, Sequelize.DataTypes);
 require('./models/users.js')(sequelize, Sequelize.DataTypes);
+require('./models/products.js')(sequelize, Sequelize.DataTypes);
 
 const alter = process.argv.includes('--alter') || process.argv.includes('-a');
 
