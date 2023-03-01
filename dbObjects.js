@@ -8,5 +8,6 @@ const sequelize = new Sequelize('database', 'username', 'password', {
 });
 
 const companies = require('./models/companies.js')(sequelize, Sequelize.DataTypes);
+const users = require('./models/users.js')(sequelize, Sequelize.DataTypes);
 
-module.exports = { sequelize, companies };
+module.exports = { sequelize, companies, users };
