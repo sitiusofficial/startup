@@ -1,4 +1,4 @@
-const companies = require('../models/companies');
+const { companies } = require('../dbObjects');
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {

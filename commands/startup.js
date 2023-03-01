@@ -1,5 +1,5 @@
 const { SlashCommandBuilder } = require('discord.js');
-const companies = require('../models/companies');
+const { companies } = require('../dbObjects');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -40,15 +40,14 @@ module.exports = {
           ceo: ceo,
           bal: bal
         });
-  
         return interaction.reply(`New company with the following properties added: \nName: ${company.name} \nIndustry: ${company.industry} \nSalary: ${company.salary} \nCEO: ${company.ceo} \nBalance: ${company.bal} \nUID: ${company.uid}`);
       }
       catch (error) {
         if (error.name === 'SequelizeUniqueConstraintError') {
           return interaction.reply('UID exists, Error code 4001');
         }
-  
-        return interaction.reply('Something went wrong with adding a company, Error code 5000');
+      // throw the error
+      throw error;
       }
 	},
 };

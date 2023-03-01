@@ -8,7 +8,7 @@ module.exports = (sequelize, Datatypes) => {
       defaultValue: Datatypes.UUIDV4,
     },
     ceo: Datatypes.INTEGER,
-    bal: Datatypes.INTEGER,
+    bal: Datatypes.INTEGER
   }, {
     timestamps: false,
   });
