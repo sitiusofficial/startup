@@ -1,11 +1,9 @@
 module.exports = (sequelize, Datatypes) => {
   return users = sequelize.define('products', {
-    uid:  {
-      type: Datatypes.INTEGER,
-      primaryKey: true,
-    },
     product_id  : {
-      type: Datatypes.INTEGER,
+      type: Datatypes.UUID,
+      primaryKey: true,
+      defaultValue: Datatypes.UUIDV4,
     },
     product_name: {
       type: Datatypes.STRING,
