@@ -1,0 +1,28 @@
+{
+  "name": "startup",
+  "version": "0.0.1",
+  "description": "A Discord bot that lets you manage your own company!",
+  "main": "index.js",
+  "scripts": {
+    "start": "node .",
+    "deploy": "node deploy-commands.js",
+    "dbinit": "node dbinit.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Spit-fires/startup.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Spit-fires/startup/issues"
+  },
+  "homepage": "https://github.com/Spit-fires/startup#readme",
+  "dependencies": {
+    "discord.js": "^14.7.1",
+    "dotenv": "^16.0.3",
+    "sequelize": "^6.29.0",
+    "sqlite3": "^5.1.4"
+  }
+}

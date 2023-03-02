@@ -1,0 +1,7 @@
+env.bak
+env/
+env
+.env
+config.json
+node_modules
+database.sqlite
