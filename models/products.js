@@ -5,6 +5,9 @@ module.exports = (sequelize, Datatypes) => {
       primaryKey: true,
       defaultValue: Datatypes.UUIDV4,
     },
+    parent_company: {
+      type: Datatypes.STRING,
+    },
     product_name: {
       type: Datatypes.STRING,
     },
@@ -22,6 +25,12 @@ module.exports = (sequelize, Datatypes) => {
     },
     product_quality: {
       type: Datatypes.INTEGER,
+    },
+    product_production_cost: { 
+      type: Datatypes.INTEGER,
+    },
+    product_type: {
+      type: Datatypes.STRING,
     },
   }, {
     timestamps: false,
