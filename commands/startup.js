@@ -16,7 +16,6 @@ module.exports = {
         .setDescription('Industry of the startup')
         .setRequired(true)
         .addChoices(
-					{ name: '⚡ Consumer goods', value: 'ind_cg' },
 					{ name: '🚗 Car manufacturer', value: 'ind_cm' },
 				))
       .addIntegerOption(option =>

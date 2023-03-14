@@ -20,15 +20,29 @@ module.exports = {
     .addIntegerOption(option =>
        option.setName('marketing_cost')
         .setDescription('The cost of marketing the product.')
-       .setRequired(true)),
+       .setRequired(true))
+    .addStringOption(option =>
+      option.setName('product_type')
+      .setDescription('The type of the product.')
+      .setRequired(true))
+      .addChoices([
+        ['sedan', 'sedan'],
+        ['suv', 'suv'],
+        ['truck', 'truck'],
+        ['motorcycle', 'motorcycle'],
+        ['luxury', 'luxury'],
+        ['sports', 'sports'],
+        ['electric', 'electric'],
+        ['hybrid', 'hybrid'],
+    ]),
   async execute(interaction) {
-    const company = await companies.findOne({ where: { ceo: interaction.user.id } });
     if (!company) return interaction.reply({ content: 'You do not own a company!', ephemeral: true });
     const product_name = interaction.options.getString('product_name');
     const product_price = interaction.options.getInteger('product_price');
     const product_quality = Math.floor(Math.random() * 10) + 1;
     const marketing_cost = interaction.options.getInteger('marketing_cost');
     const product_production = interaction.options.getInteger('product_production');
+    const product_production_cost = Math.floor( product_price/product_quality*0.5*2); // formula =  p/q*0.5*2
 
     const product = await products.create({
       product_name: product_name,
@@ -36,7 +50,8 @@ module.exports = {
       product_quality: product_quality,
       product_marketing: marketing_cost,
       product_production: product_production,
-
+      product_production_cost: product_production_cost,
+      parent_company: company.uid,
     })
 
     const embed = {
@@ -59,6 +74,18 @@ module.exports = {
           name: 'Marketing cost',
           value: marketing_cost,
         },
+        {
+          name: 'Production amount',
+          value: product_production,
+        },
+        {
+          name: 'Production cost',
+          value: product_production_cost,
+        },
+        {
+          name: 'Product ID',
+          value: product.product_id,
+        }
       ],
     }
 
